@@ -29,8 +29,9 @@ Note:
 - As during fine-tuning the images are resized to `224x224` and given `batch_size=256`, training requires a GPU with at least **32 Gb memory**, e.g., **NVIDIA V100/A100**.
 - Logging is done with the [`wandb`](https://wandb.ai/) library, so make sure to log in before launching the experiments.
 
-### Download pre-trained checkpoint
+### Pre-trained checkpoint
 
+Download, create `checkpoints/` folder and move downloaded there
 - BYOL ResNet-50 ImageNet pre-trained checkpoints are available [here](https://drive.google.com/drive/folders/1BONZZ6pytC3yP2EXcZJaB07z4eKmtx20?usp=sharing)
 
 ### Experiments
