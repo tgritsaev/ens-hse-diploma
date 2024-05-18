@@ -1,0 +1,19 @@
+ripserplusplus @ git+https://github.com/ArGintum/RipserZeros.git@bac8a96f56e9e3ed46202323accbeeee11c4b54c
+torch
+scikit-learn
+
+gdown
+ipykernel 
+tqdm
+
+numpy
+torchaudio
+torchvision
+POT
+gudhi
+pandas
+matplotlib
+seaborn
+wandb
+
+timm
