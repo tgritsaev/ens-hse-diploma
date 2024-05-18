@@ -1,20 +1,15 @@
-# To Stay or Not to Stay in the Pre-train Basin: Insights on Ensembling in Transfer Learning
+# Diploma thesis at HSE AMI. Analysis of Neural Networks Internal Representations During Transfer Learning
 
-This repo is the official source code of NeurIPS-2023 paper:
+This repo is the source code of my bachelor thesis: [pdf](https://github.com/tgritsaev/ens-hse-diploma/tree/master/diploma.pdf)
 
-**To Stay or Not to Stay in the Pre-train Basin: Insights on Ensembling in Transfer Learning** \
-By [Ildus Sadrtdinov](https://scholar.google.com/citations?user=XhqNegUAAAAJ&hl=en)\*,
-[Dmitrii Pozdeev](https://scholar.google.com/citations?user=4dlh3pkAAAAJ&hl=en)\*,
-[Dmitry Vetrov](https://scholar.google.com/citations?user=7HU0UoUAAAAJ&hl=en),
-[Ekaterina Lobacheva](https://tipt0p.github.io/)
-
-[arXiv](https://arxiv.org/abs/2303.03374) / [OpenReview](https://openreview.net/forum?id=NNooZoQpP4&noteId=9lHQopv0ZL) / [Poster & video](https://nips.cc/virtual/2023/poster/71864)
+**Analysis of Neural Networks Internal Representations During Transfer Learning** \
+is done by Timofei Gritsaev supervised by [Ildus Sadrtdinov](https://scholar.google.com/citations?user=XhqNegUAAAAJ&hl=en)\*
 
 ## Abstract
 
 <div align="justify">
 <img align="right" width=35% src="https://github.com/isadrtdinov/ens-for-transfer/blob/master/images/logo.jpg" />
-Transfer learning and ensembling are two popular techniques for improving the performance and robustness of neural networks. Due to the high cost of pre-training, ensembles of models fine-tuned from a single pre-trained checkpoint are often used in practice. Such models end up in the same basin of the loss landscape, which we call the pre-train basin, and thus have limited diversity. In this work, we show that ensembles trained from a single pre-trained checkpoint may be improved by better exploring the pre-train basin, however, leaving the basin results in losing the benefits of transfer learning and in degradation of the ensemble quality. Based on the analysis of existing exploration methods, we propose a more effective modification of the Snapshot Ensembles (SSE) for transfer learning setup, StarSSE, which results in stronger ensembles and uniform model soups.
+Transfer learning and ensembling are two popular techniques for improving the performance and robustness of neural networks. In practice, ensembles trained from a single pre-trained checkpoint are often used due to the significant expense of pre-training. Nevertheless, the most naive approach to fine-tune ensemble results in similar models and suboptimal accuracy. In this work, we discuss Snapshot Ensembling (SSE) and its modification StarSSE. We improve the former using similarity losses: Representation Topology Distance (RTD) and Mean Squared Error (MSE). Our modifications reduce quality degradation, forced by losing pre-trained knowledge. We research possibilities of ensemble training time reduction via layers freeze, which leads to an accuracy-time trade-off. Then, we show that successful ideas like weights orthogonalization in supervised training can be useless in the transfer learning setup. Finally, we show the possibility of increasing StarSSE diversity using directly inducing its loss.
 </div>
 
 ## Code
@@ -34,44 +29,21 @@ Note:
 - As during fine-tuning the images are resized to `224x224` and given `batch_size=256`, training requires a GPU with at least **32 Gb memory**, e.g., **NVIDIA V100/A100**.
 - Logging is done with the [`wandb`](https://wandb.ai/) library, so make sure to log in before launching the experiments.
 
-### Configuration and training parameters
-
-To see the configuration files and parameters for different training setups, refer to the [`configs/`](https://github.com/isadrtdinov/ens-for-transfer/tree/master/configs) directory.
-
-### Pre-trained checkpoints
+### Download pre-trained checkpoint
 
 - BYOL ResNet-50 ImageNet pre-trained checkpoints are available [here](https://drive.google.com/drive/folders/1BONZZ6pytC3yP2EXcZJaB07z4eKmtx20?usp=sharing)
-- Supervised ResNet-50 ImageNet checkpoints pre-trained by [Asukha et al, 2020](https://github.com/SamsungLabs/pytorch-ensembles)
-- Supervised Swin-Tiny ImageNet pre-trained checkpoints are available [here](https://drive.google.com/drive/folders/1gF_T3r7cyDO-JqnIGnWUVQy2GvSHR_IC?usp=sharing)
 
 ### Experiments
 
-Scripts for launching experiments are located in the [`scripts/`](https://github.com/isadrtdinov/ens-for-transfer/tree/master/scripts) directory. For example, to launch experiments for BYOL ResNet-50 setup, run the following commands:
+Scripts for launching experiments are located in the [`scripts/`](https://github.com/tgritsaev/ens-hse-diploma/tree/master/scripts) directory. 
 
-- For training baselines (Local DE and Global DE)
+To launch experiments with optimal StarSSE run the following command:
 ```sh
-python scripts/byol/byol_baseline.py
+python scripts/byol/starsse.py
 ```
-
+For optimal StarSSE-CE run the following command:
 - For training SSE with different cycle hyperparameters
 ```sh
-python scripts/byol/byol_sse.py
+python scripts/byol/byol_starsse_ce.py
 ```
-  
-- For training StarSSE with different cycle hyperparameters
-```sh
-python scripts/byol/byol_starsse.py
-```
-
-## Citation
-
-If you found this code useful, please cite our paper:
-
-```
-@inproceedings{sadrtdinov2023to,
-    title={To Stay or Not to Stay in the Pre-train Basin: Insights on Ensembling in Transfer Learning},
-    author={Ildus Sadrtdinov and Dmitrii Pozdeev and Dmitry P. Vetrov and Ekaterina Lobacheva},
-    booktitle={Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS)},
-    year={2023},
-}
-```
+and go on
