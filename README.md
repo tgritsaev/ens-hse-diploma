@@ -3,7 +3,7 @@
 This repo is the source code of my bachelor thesis: [pdf](https://github.com/tgritsaev/ens-hse-diploma/tree/master/diploma.pdf)
 
 **Analysis of Neural Networks Internal Representations During Transfer Learning** \
-is done by Timofei Gritsaev supervised by [Ildus Sadrtdinov](https://scholar.google.com/citations?user=XhqNegUAAAAJ&hl=en)\*
+is done by Timofei Gritsaev supervised by [Ildus Sadrtdinov](https://scholar.google.com/citations?user=XhqNegUAAAAJ&hl=en)\
 
 ## Abstract
 
