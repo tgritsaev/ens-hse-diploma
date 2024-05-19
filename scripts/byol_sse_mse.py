@@ -15,11 +15,11 @@ NUM_RUNS = 3
 seeds = np.random.choice(100000, size=[len(PT_CKPTS), NUM_RUNS], replace=False)
 for i, ckpt in enumerate(PT_CKPTS):
     for j in range(NUM_RUNS):
-        beta = 0.0316
+        beta = 20
         config = Params(
             seed=int(seeds[i, j]),
             ckpt=ckpt,
-            wandb_group=f"BYOL_StarSSE-RTD={beta}",
+            wandb_group=f"BYOL_SSE-MSE={beta}",
         )
         
         config.data_path = "/opt/software/datasets/cifar"
@@ -27,7 +27,7 @@ for i, ckpt in enumerate(PT_CKPTS):
         config.fge_lr = 2 * config.lr
         config.fge_epochs = int(0.5 * config.epochs)
         
-        config.fmap_loss_type = "RTDLoss"
+        config.fmap_loss_type = "MSELoss"
         config.fmap_betas = [0, 0, 0, 0, beta]
         
         main(config)

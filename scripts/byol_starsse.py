@@ -10,7 +10,7 @@ PT_CKPTS = [
     './checkpoints/byol-1000ep-1.pt',
     './checkpoints/byol-1000ep-2.pt',
 ]
-NUM_RUNS = 2
+NUM_RUNS = 3
 
 seeds = np.random.choice(100000, size=[len(PT_CKPTS), NUM_RUNS], replace=False)
 for i, ckpt in enumerate(PT_CKPTS):
@@ -27,23 +27,5 @@ for i, ckpt in enumerate(PT_CKPTS):
         
         config.fge_lr = x_lr * config.lr
         config.fge_epochs = int(0.5 * config.epochs)
-
-        # config.save_all_models = True
-        # config.num_fge = 15
-        
-        
-        # config.prev_ce_beta = beta
-        # config.only_negative = True
-        
-        # config.freeze_layers = [
-        #     "conv1",
-        #     "bn1",
-        #     "relu",
-        #     "maxpool",
-        #     "layer1",
-        #     "layer2",
-        #     "layer3",
-        #     "layer4",
-        # ]
         
         main(config)
