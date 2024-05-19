@@ -1,9 +1,9 @@
 # Diploma thesis at HSE AMI. Analysis of Neural Networks Internal Representations During Transfer Learning
 
-This repo is the source code of my bachelor thesis: [pdf](https://github.com/tgritsaev/ens-hse-diploma/tree/master/diploma.pdf)
+This repository is the source code of my bachelor thesis: [pdf](https://github.com/tgritsaev/ens-hse-diploma/tree/master/diploma.pdf)
 
 **Analysis of Neural Networks Internal Representations During Transfer Learning** \
-is done by Timofei Gritsaev supervised by [Ildus Sadrtdinov](https://scholar.google.com/citations?user=XhqNegUAAAAJ&hl=en)\
+is done by Timofei Gritsaev supervised by [Ildus Sadrtdinov](https://scholar.google.com/citations?user=XhqNegUAAAAJ&hl=en)
 
 ## Abstract
 
@@ -31,8 +31,10 @@ Note:
 
 ### Pre-trained checkpoint
 
-Download, create `checkpoints/` folder and move downloaded there
-- BYOL ResNet-50 ImageNet pre-trained checkpoints are available [here](https://drive.google.com/drive/folders/1BONZZ6pytC3yP2EXcZJaB07z4eKmtx20?usp=sharing)
+Download:
+- BYOL ResNet-50 ImageNet pre-trained checkpoints are available [here](https://drive.google.com/drive/folders/1BONZZ6pytC3yP2EXcZJaB07z4eKmtx20?usp=sharing).
+
+Then create `checkpoints/` folder and move downloaded there.
 
 ### Experiments
 
@@ -43,8 +45,10 @@ To launch experiments with optimal StarSSE run the following command:
 python scripts/byol/starsse.py
 ```
 For optimal StarSSE-CE run the following command:
-- For training SSE with different cycle hyperparameters
 ```sh
 python scripts/byol/byol_starsse_ce.py
 ```
-and go on
+and go on.
+
+## Credits
+This repository is modified and based on the "To Stay or Not to Stay in the Pre-train Basin: Insights on Ensembling in Transfer Learning" [repository](https://github.com/isadrtdinov/ens-for-transfer).
