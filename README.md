@@ -42,11 +42,11 @@ Scripts for launching experiments are located in the [`scripts/`](https://github
 
 To launch experiments with optimal StarSSE run the following command:
 ```sh
-python scripts/byol/starsse.py
+python scripts/byol_starsse.py
 ```
 For optimal StarSSE-CE run the following command:
 ```sh
-python scripts/byol/byol_starsse_ce.py
+python scripts/byol_starsse_ce.py
 ```
 and go on.
 
